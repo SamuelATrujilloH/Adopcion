@@ -1,0 +1,143 @@
+:root {
+    --bg-main: #fffdf9;
+    --primary: #ff8a65;
+    --primary-dark: #e57373;
+    --accent: #a5d6a7;
+    --accent-dark: #81c784;
+    --text-color: #4a4a4a;
+    --radius-rounded: 22px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-color);
+}
+
+h1, h2, h3, .logo { font-family: 'Fredoka', sans-serif; }
+
+header {
+    position: fixed;
+    top: 0; width: 100%; z-index: 1000; padding: 15px 5%;
+    background: rgba(255, 253, 249, 0.85);
+    backdrop-filter: blur(15px);
+    border-bottom: 2px dashed rgba(255, 138, 101, 0.15);
+}
+
+.navbar { display: flex; justify-content: space-between; align-items: center; }
+
+.logo { font-size: 1.8rem; color: var(--primary); cursor: pointer; }
+.logo span { color: var(--primary-dark); }
+
+.nav-links { list-style: none; display: flex; gap: 10px; align-items: center; }
+
+.nav-btn {
+    background: none; border: none; font-family: inherit; font-weight: 700;
+    padding: 8px 16px; cursor: pointer; border-radius: 50px; transition: 0.3s ease;
+}
+
+.nav-btn:hover { color: var(--primary); background: rgba(255, 138, 101, 0.1); }
+.nav-btn.active { color: white; background: var(--primary); }
+
+.user-badge { display: flex; align-items: center; gap: 10px; background: #eee; padding: 5px 15px; border-radius: 50px; }
+.btn-logout { background: var(--primary-dark); color: white; border: none; padding: 3px 10px; border-radius: 50px; cursor: pointer; transition: 0.3s; }
+.btn-logout:hover { background: #d32f2f; transform: scale(1.05); }
+
+.main-container { margin-top: 90px; padding: 40px 5%; min-height: 80vh; display: flex; align-items: flex-start; }
+
+.tab-content { display: none; width: 100%; animation: fadeIn 0.4s ease; }
+
+.tab-content.active { display: block; }
+
+.tab-content.active#login-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.hero-layout { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; width: 100%; }
+.hero-text { flex: 1; }
+.hero-text h1 { font-size: 3rem; margin-bottom: 20px; }
+.hero-image-container { flex: 1; height: 350px; overflow: hidden; border-radius: var(--radius-rounded); }
+.main-image-blur { width: 100%; height: 100%; background-size: cover; transition: 0.5s ease; }
+.hero-image-container:hover .main-image-blur { transform: scale(1.1); }
+
+.dog-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 30px; 
+    width: 100%; 
+    padding: 20px 0;
+}
+
+.dog-card { 
+    background: white; border-radius: var(--radius-rounded); overflow: hidden; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s ease; 
+}
+.dog-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(255, 138, 101, 0.2); }
+
+.card-img-box { height: 200px; background-size: cover; background-position: center; position: relative; overflow: hidden; transition: 0.5s ease; }
+.dog-card:hover .card-img-box { transform: scale(1.1); }
+
+.badge { position: absolute; top: 10px; left: 10px; padding: 4px 12px; border-radius: 50px; color: white; font-size: 0.8rem; z-index: 2; }
+.status-puppy { background: #ffa726; }
+.status-senior { background: #26a69a; }
+.status-adult { background: #78909c; }
+
+.card-body { padding: 15px; }
+.btn-card { 
+    width: 100%; background: #fff1ed; color: var(--primary-dark); border: none; 
+    padding: 10px; border-radius: 12px; cursor: pointer; font-weight: bold; transition: 0.3s; 
+}
+.btn-card:hover { background: var(--primary-dark); color: white; transform: scale(1.02); }
+
+#login-section { width: 100%; }
+.login-card { 
+    background: white; padding: 40px; width: 100%; max-width: 400px; 
+    border-radius: var(--radius-rounded); box-shadow: 0 20px 40px rgba(255, 138, 101, 0.15); 
+    border: 1px solid rgba(255, 138, 101, 0.1); text-align: center; 
+}
+.login-card input { width: 100%; padding: 12px; margin: 10px 0; border: 2px solid #f0f0f0; border-radius: 10px; transition: 0.3s; }
+.login-card input:focus { border-color: var(--primary); outline: none; background: #fff; }
+
+.admin-layout { width: 100%; max-width: 1200px; margin: 0 auto; }
+.admin-grid-box { display: grid; grid-template-columns: 1fr 1.5fr; gap: 20px; }
+
+.contact-box { display: flex; background: white; border-radius: var(--radius-rounded); overflow: hidden; width: 100%; }
+.contact-info-panel { background: var(--primary); color: white; padding: 30px; flex: 1; }
+
+.friendly-form { padding: 30px; flex: 1.5; display: flex; flex-direction: column; gap: 10px; }
+.friendly-form input, .friendly-form textarea, .form-select { padding: 12px; border: 1px solid #ddd; border-radius: 10px; transition: 0.3s; }
+.friendly-form input:focus { border-color: var(--primary); }
+
+.styled-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: white; border-radius: 10px; overflow: hidden; }
+.styled-table th { background: #fdf2f0; padding: 12px; }
+.styled-table td { padding: 12px; border-bottom: 1px solid #eee; text-align: center; }
+
+.btn-primary, .btn-submit { 
+    background: var(--primary); color: white; border: none; padding: 12px 25px; 
+    border-radius: 50px; cursor: pointer; font-weight: bold; transition: 0.3s; 
+}
+.btn-primary:hover, .btn-submit:hover { background: var(--primary-dark); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(229, 115, 115, 0.4); }
+
+.btn-action-accept { background: var(--accent); border: none; padding: 8px 15px; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+.btn-action-reject { background: #ffcdd2; border: none; padding: 8px 15px; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+
+.demo-hints { margin-top: 20px; padding: 15px; background: #fffdf9; border: 1px dashed var(--primary); border-radius: 12px; font-size: 0.8rem; }
+
+/* --- NUEVAS CLASES PARA LAS FUNCIONES SOLICITADAS --- */
+.btn-info { background: #e0f2f1; color: #00796b; border: none; padding: 10px; border-radius: 10px; cursor: pointer; width: 100%; margin: 10px 0; font-weight: bold; }
+
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000; align-items: center; justify-content: center; }
+.modal-content { background: white; padding: 30px; border-radius: 20px; max-width: 400px; width: 90%; text-align: center; }
+.modal-content ul { text-align: left; margin: 15px 0; padding-left: 20px; }
+
+.steps-container { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 20px; }
+.step-card { background: white; padding: 20px; border-radius: 20px; flex: 1; min-width: 150px; text-align: center; border: 1px solid #eee; }
+.step-number { background: var(--primary); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-weight: bold; }
